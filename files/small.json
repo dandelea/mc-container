@@ -1,0 +1,9 @@
+{"objects":[
+    {"id":1, "volume":12, "customer":0},
+    {"id":2, "volume":2, "customer":0},
+    {"id":3, "volume":1, "customer":2},
+    {"id":4, "volume":4, "customer":3},
+    {"id":5, "volume":1, "customer":4}
+],
+"total_volume": 15
+}
