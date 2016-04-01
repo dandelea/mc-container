@@ -50,33 +50,6 @@ def run(filepath):
 
 	print_solution(objects, x)
 
-	print("---Solución al problema 3---")
-	'''
-		Restricciones: 
-			- El volumen no puede exceder la capacidad del contenedor.
-				sum (vi * xi) <= V
-			- Si un objeto es incluido, deben incluirse todos los del mismo cliente.
-
-
-		Función objetivo: Máximo volumen
-			F(X): max sum (vi * xi)
-	'''
-	x = VarArray(len(volumes))	# Vector de variables binarias xi (Objeto i entra en contenedor)
-	#arr = all(o == [np.take(x, np.where(customers==c))[0] for c in np.array(customers)][0] for o in [np.take(x, np.where(customers==c))[0] for c in np.array(customers)])
-
-	arr = [np.take(x, np.where(customers==c))[0] for c in np.array(customers)]
-	print(arr)
-	arr2 = all(for o1 in arr)
-
-	model = Model(np.sum(np.array(volumes)*np.array(x))<=total_volume, 
-			) # Restrictions
-	model.add(Maximise(np.sum(np.array(x))))										# Objective function
-	solver = model.load("Mistral")
-	solver.solve()
-	#bool(np.array([bool((x_ind==0).all() or (x_ind==1).all()) for x_ind in [np.take(x,np.where(customers==c)[0]) for c in np.array(customers)]]).all()))
-
-	print_solution(objects, x)
-
 def restriction_customer(customers, x):
 	customers = np.array(customers)
 	result = True
